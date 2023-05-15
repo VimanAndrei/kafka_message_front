@@ -43,7 +43,7 @@ function Register() {
 
         <FormControl>
             <Button variant='contained' onClick={() => addPersonDetails()}>Add</Button>
-            <Button variant='contained' style={{marginTop: 10}} onClick={() => {window.location = '/'}}>Back</Button>
+            <Button variant='contained' style={{marginTop: 10}} onClick={() => {window.location = ''}}>Back</Button>
         </FormControl>
     </FormPerson>
   )

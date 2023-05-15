@@ -37,16 +37,10 @@ class Login extends Component {
         }else{
             let string = decoded.sub
             const words = string.split(';');
-            if (words[0] === "ADMIN") {
-                window.sessionStorage.setItem("id",words[1])
-                window.sessionStorage.setItem("role","ADMIN")
-                window.location=`/all`       
-            } 
-            if(words[0] === "CLIENT") {
-                window.sessionStorage.setItem("id",words[1])
-                window.sessionStorage.setItem("role","CLIENT")
-                window.location=`/client/${words[1]}`                
-            }
+
+            window.sessionStorage.setItem("id",words[1])
+            window.sessionStorage.setItem("username",words[0])
+            // window.location=`/all`       
         }
         
     }
