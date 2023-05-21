@@ -28,7 +28,12 @@ function UserList(){
         let color = "#" + hex.toString(16);
       
         return color;
-      }
+    }
+
+    function startChat(to){
+        window.sessionStorage.setItem("to", to);
+        window.location = '/chat';        
+    }
 
 
     return (
@@ -41,8 +46,8 @@ function UserList(){
                             const labelId = `checkbox-list-secondary-label-${i}`;
                             return (
                                 <div>
-                                    <ListItem key={user?.id} >
-                                        <ListItemButton>
+                                    <ListItem key={user?.id} onClick={() => startChat(user?.name)}>
+                                        <ListItemButton >
                                             <ListItemAvatar>
                                                 <Avatar
                                                     alt={`${user?.name}`}

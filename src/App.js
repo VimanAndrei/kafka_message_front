@@ -5,6 +5,7 @@ import Register from './Register/Register';
 import React, {useEffect, useState} from 'react'
 import UserList from './Chat/UserList';
 import AddGroup from './Chat/AddGroup';
+import Chat from './Chat/ChatComponents/Chat';
 
 function App() {
   const [showListOfUsers, setShowListOfUsersToggle] = useState(false);
@@ -29,6 +30,7 @@ function App() {
                 <>
                   <Route path='/userslist' element={<UserList/>}/>
                   <Route path='/addGroup' element={<AddGroup/>}/>
+                  <Route path='/chat' element={<Chat/>}/>
                 </>
               }
             </Route>
