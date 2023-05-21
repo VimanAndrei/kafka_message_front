@@ -40,7 +40,7 @@ class Login extends Component {
 
             window.sessionStorage.setItem("id",words[1])
             window.sessionStorage.setItem("username",words[0])
-            // window.location=`/all`       
+            window.location=`/userslist`       
         }
         
     }
