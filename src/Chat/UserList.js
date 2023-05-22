@@ -30,8 +30,9 @@ function UserList(){
         return color;
     }
 
-    function startChat(to){
+    function startChat(to, isGroup){
         window.sessionStorage.setItem("to", to);
+        window.sessionStorage.setItem("isGroup", isGroup);
         window.location = '/chat';        
     }
 
@@ -46,7 +47,7 @@ function UserList(){
                             const labelId = `checkbox-list-secondary-label-${i}`;
                             return (
                                 <div>
-                                    <ListItem key={user?.id} onClick={() => startChat(user?.name)}>
+                                    <ListItem key={i} onClick={() => startChat(user?.name, user?.group)}>
                                         <ListItemButton >
                                             <ListItemAvatar>
                                                 <Avatar

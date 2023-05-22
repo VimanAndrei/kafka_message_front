@@ -33,21 +33,20 @@ const Chat = () => {
 
     let onMessageReceived = (msg) => {
         console.log('New Message Received!!', msg);
-        setMessages(messages.concat(msg));
-
-        // const userName = window.sessionStorage.getItem("username");
-        // const messageto = window.sessionStorage.getItem("to"); 
-
-        // if (msg.messageFrom === userName  msg.messageTo=== userName){
-        //     setMessages(messages.concat(msg));
-        // }else{
-        //     if(msg.messageTo === messageto && msg.messageFrom === userName){
-        //         setMessages(messages.concat(msg));
-        //     }
-
-        // }
-        
-        
+        let isGroup = window.sessionStorage.getItem("isGroup");
+        let username = window.sessionStorage.getItem("username");
+        let to = window.sessionStorage.getItem("to");    
+        if(isGroup === 'true'){
+            if(msg.messageTo === to){
+                setMessages(messages.concat(msg));
+            }
+            
+        }else{
+            if (msg.messageFrom === username || msg.messageTo=== username){
+                setMessages(messages.concat(msg));
+            }
+        }
+            
     }
 
     let onConnected = () => {
@@ -63,8 +62,9 @@ const Chat = () => {
 
     const getAllMessagesF = async () =>  {
         let from = window.sessionStorage.getItem("username");
-        let to = window.sessionStorage.getItem("to");  
-        let response = await getAllMessages(from, to);
+        let to = window.sessionStorage.getItem("to");
+        let isGroup = window.sessionStorage.getItem("isGroup");  
+        let response = await getAllMessages(from, to, isGroup);
         console.log(response);
         setMessages(response.data);
         setShow(true);

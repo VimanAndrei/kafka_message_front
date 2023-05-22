@@ -11,7 +11,8 @@ margin: 5% auto 0% auto;
 `
 const personData = {
     name:"",
-    password:""
+    password:"",
+    isGroup: false
 }
 
 function Register() {
@@ -43,7 +44,7 @@ function Register() {
 
         <FormControl>
             <Button variant='contained' onClick={() => addPersonDetails()}>Add</Button>
-            <Button variant='contained' style={{marginTop: 10}} onClick={() => {window.location = ''}}>Back</Button>
+            <Button variant='contained' style={{marginTop: 10}} onClick={() => {window.location = '/'}}>Back</Button>
         </FormControl>
     </FormPerson>
   )

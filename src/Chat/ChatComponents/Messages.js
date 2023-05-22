@@ -4,7 +4,12 @@ import React from 'react'
 const Messages = ({ messages, currentUser }) => {
 
     let renderMessage = (message) => {
-        const messageFromMe = currentUser === message.messageTo;
+        let isGroup = window.sessionStorage.getItem("isGroup");
+        let messageFromMe = currentUser !== message.messageTo;
+        if(isGroup === 'true'){
+            messageFromMe = currentUser === message.messageFrom;
+        }
+        
         const className = messageFromMe ? "Messages-message currentUser" : "Messages-message";
         console.log(message);
         return (

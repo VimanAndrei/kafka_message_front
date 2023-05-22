@@ -31,10 +31,10 @@ export const sendMessageToBack = async (username, text, to) => {
     }
 }
 
-export const getAllMessages = async (from, to) =>{
+export const getAllMessages = async (from, to, isGroup) =>{
     const msg = {
         messageFrom: from,
-        messageContent: "",
+        messageContent: isGroup + "",
         messageTo: to
     }
     try {

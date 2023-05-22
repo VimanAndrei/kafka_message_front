@@ -11,7 +11,8 @@ margin: 5% auto 0% auto;
 `
 const personData = {
     name:"",
-    password:""
+    password:"",
+    isGroup: true
 }
 
 function AddGroup() {
